@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>For My Sister 💕</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Mobile-specific inline styles */
+        @media (max-width: 480px) {
+            .welcome-note p {
+                white-space: normal;
+                text-align: left;
+            }
+            
+            .qualities-container .quality {
+                margin-bottom: 8px;
+            }
+            
+            .special-message {
+                width: 90%;
+            }
+        }
+        
+        /* Fix for 100vh in mobile browsers */
+        .full-page {
+            min-height: 100vh; /* fallback */
+            min-height: calc(var(--vh, 1vh) * 100);
+        }
+    </style>
+</head>
+<body class="dutch-theme">
+    <div class="bg-pattern"></div>
+    <div class="stars"></div>
+    <div class="floating-hearts"></div>
+    
+    <main class="container full-page">
+        <section class="intro-screen">
+            <div class="rakhi-string"></div>
+            <div class="rakhi">
+                <div class="center-stone"></div>
+                <div class="petals"></div>
+            </div>
+            
+            <div class="intro-text">
+                <h1 class="fade-in-slow">Dear Sister</h1>
+                <p class="typewriter">A special Rakhi Gift awaits you...(from om😁)</p>
+            </div>
+            
+            <button class="begin-button" onclick="revealContent()">
+                <span>Begin Journey</span>
+                <div class="ripple"></div>
+            </button>
+        </section>
+        
+        <section class="hidden-content">
+            <div class="welcome-header fade-in-element">
+                <h2>Happy Raksha Bandhan 🪔</h2>
+                <p class="subtitle">Distance cannot diminish the love we share</p>
+            </div>
+            
+            <div class="polaroid fade-in-element">
+                <div class="polaroid-content">
+                    <img src="rakhi.jpg" alt="Beautiful memories with my sister" onerror="this.style.display='none'; this.parentNode.innerHTML='<span class=\'emoji\'>💖</span>';">
+                </div>
+                <p>This is the only photo I found😭, We need more pictures together😭</p>
+            </div>
+            
+            
+            
+            
+            
+            <div class="qualities-container fade-in-element">
+                <h3>What Makes You Special</h3>
+                <div class="qualities">
+                    <div class="quality" onclick="highlightQuality(this)">
+                        <div class="quality-icon"></div>
+                        <span>Always ready for clicking pictures</span>
+                    </div>
+                    <div class="quality" onclick="highlightQuality(this)">
+                        <div class="quality-icon"></div>
+                        <span>professinal Yapper</span>
+                    </div>
+                    <div class="quality" onclick="highlightQuality(this)">
+                        <div class="quality-icon"></div>
+                        <span>Dumber then me</span>
+                    </div>
+                    <div class="quality" onclick="highlightQuality(this)">
+                        <div class="quality-icon"></div>
+                        <span>Being my Sister</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="interactive-section fade-in-element">
+                <button class="special-button" onclick="showSpecialMessage()">
+                    Click for a Special Message 💌
+                </button>
+                <div id="specialMessage" class="special-message">
+                    Thank you for being the most amazing sister anyone could ask for! Your love, support, mean the world to me. 💕
+                </div>
+            </div>
+            
+            <div class="welcome-note fade-in-element">
+                <h3>Happy Raksha Bandhan, Shurti Didi ❤️</h3>
+                <p>Even though we aren’t tied by blood, you’ve always tied my life with love, care, and those endless childhood memories we share. From the days we spent playing, fighting over silly things, to the times you stood up for me like a real sister  every moment is precious.
+
+Now that you’re far away, Raksha Bandhan feels a little incomplete without you here… but our bond has never been about distance. It’s about the love and memories that will always keep us connected.
+
+Thank you for being my sister in every way that matters.
+Miss you, Didi… and yes, I’ll still annoy you whenever I get the chance. 😄</p>
+                <div class="signature">Your forever little brother,<br>Omu ❤️</div>
+            </div>
+            
+            <div class="navigation-buttons fade-in-element">
+                <button class="minimal-button" onclick="window.location.href='journey.html'">
+                    Explore Our Journey Together →
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
