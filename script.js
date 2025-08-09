@@ -307,19 +307,83 @@ function showSpecialMessage() {
     const message = document.getElementById('specialMessage');
     if (!message) return;
     
-    const button = document.querySelector('.modern-button');
+    // Remove pointer-events limitation that might be causing issues
+    const button = document.querySelector('.special-button');
     
     message.classList.add('show');
-    if (button) button.style.pointerEvents = 'none';
     
     // Add subtle particle effect
     createParticles();
     
     setTimeout(() => {
         message.classList.remove('show');
-        if (button) button.style.pointerEvents = 'auto';
     }, 4000);
 }
+
+// Ensure the onclick handlers work properly on mobile
+document.addEventListener('DOMContentLoaded', function() {
+    // Fix for buttons not working on mobile
+    const specialButton = document.querySelector('.special-button');
+    const journeyButton = document.querySelector('.minimal-button');
+    
+    if (specialButton) {
+        specialButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            showSpecialMessage();
+        });
+        
+        // Add touchend event to ensure it works on mobile
+        specialButton.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            showSpecialMessage();
+        }, {passive: false});
+    }
+    
+    if (journeyButton) {
+        journeyButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            window.location.href = 'journey.html';
+        });
+        
+        // Add touchend event to ensure it works on mobile
+        journeyButton.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            window.location.href = 'journey.html';
+        }, {passive: false});
+    }
+    
+    // ...rest of your existing DOMContentLoaded code...
+});
+
+// Modify the highlight quality function to ensure it works on mobile
+function highlightQuality(element) {
+    if (!element) return;
+    
+    const qualities = document.querySelectorAll('.quality');
+    qualities.forEach(quality => {
+        quality.classList.remove('highlight');
+    });
+    element.classList.add('highlight');
+}
+
+// Add direct touch event listeners to quality items
+document.addEventListener('DOMContentLoaded', function() {
+    const qualityItems = document.querySelectorAll('.quality');
+    
+    qualityItems.forEach(item => {
+        item.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            highlightQuality(this);
+        }, {passive: false});
+    });
+    
+    // ...existing code...
+});
 
 // Simple particle effect
 function createParticles() {

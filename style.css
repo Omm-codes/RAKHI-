@@ -300,6 +300,21 @@ h1, h2, h3, h4 {
     color: var(--dutch-white);
 }
 
+/* Improve mobile button feedback */
+.special-button, .minimal-button {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    touch-action: manipulation;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    z-index: 5;
+}
+
+.special-button:active, .minimal-button:active {
+    transform: scale(0.97);
+}
+
 /* Welcome Header */
 .welcome-header {
     text-align: center;
@@ -624,6 +639,16 @@ h1, h2, h3, h4 {
     .quote {
         font-size: 22px;
         padding: 0 20px;
+    }
+    
+    .special-button, .minimal-button {
+        padding: 15px 30px; /* Larger touch target */
+        margin: 10px 0;
+    }
+    
+    .quality {
+        padding: 15px;
+        touch-action: manipulation;
     }
 }
 
